@@ -1,5 +1,4 @@
 # DiceCraft
-
 **DiceCraft** es un proyecto modular para Minecraft que introduce mecánicas de combate inspiradas en sistemas de rol clásicos, como *Dungeons & Dragons*.
 
 ![Banner Logo](https://cdn.modrinth.com/data/MrR8fKPi/images/616c4847a32c8cf941ea3127cd4b4875e65b06a0.png)
