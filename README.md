@@ -34,7 +34,7 @@
 ## Instalación
 
 ### **Requisitos Previos**
-- Minecraft 1.21.4+.
+- Minecraft 1.21.1 o 1.21.4+.
 - [Fabric Loader](https://fabricmc.net/use) y [Fabric API](https://modrinth.com/mod/fabric-api) para el mod.
 - Un servidor Paper para el plugin.
 
@@ -127,7 +127,7 @@ Todo es configurable.
 ## Installation
 
 ### **Requirements**
-- Minecraft 1.21.4+.
+- Minecraft 1.21.1 or 1.21.4+.
 - [Fabric Loader](https://fabricmc.net/use) and [Fabric API](https://modrinth.com/mod/fabric-api) for the mod.
 - A Paper server for the plugin.
 
