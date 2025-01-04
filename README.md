@@ -36,6 +36,9 @@
 <details><summary>Plugin</summary>
 
 - **Compatibility with Paper servers**: Extends the mod's mechanics for multiplayer servers.
+- **Custom Attributes System**:
+    - Players can manage their attributes using `/dicecraft stats <set|reset|view>`.
+    - Admins can view other players' stats with `/dicecraft stats view <player>`.
 - **Advanced commands**:
     - `/dicecraft config fairmode <true/false>`: Enables or disables FairMode.
     - `/dicecraft config shieldbonus <value>`: Adjusts the armor bonus provided by shields.
@@ -70,7 +73,7 @@
     - The attack roll (*d20*).
     - Bonuses based on the weapon used.
     - The damage dealt based on the corresponding dice roll.
-Everything is configurable.
+      Everything is configurable.
 
 ### **Mobs**
 - Mobs perform attack rolls (*d20*) to determine if their attacks succeed.
@@ -90,6 +93,7 @@ Everything is configurable.
 <details><summary>Paper</summary>
 
 - Use commands to manage advanced configurations:
+    - `/dicecraft stats <set|reset|view> [player]`: View or configure player attributes.
     - `/dicecraft config fairmode <true/false>`: Enables or disables FairMode.
     - `/dicecraft config shieldbonus <value>`: Adjusts the shield armor bonus.
     - `/dicecraft config add weapon <damage die> <bonus>`: Add a custom weapon based on your model by having it in the mainhand.
@@ -166,6 +170,9 @@ If you need help or have questions, join our Discord server! 😊
 <details><summary>Plugin</summary>
 
 - **Compatibilidad con servidores Paper**: Extiende las mecánicas del mod para servidores multijugador.
+- **Sistema de Atributos Personalizados**:
+    - Los jugadores pueden gestionar sus atributos con `/dicecraft stats <set|reset|view>`.
+    - Los administradores pueden ver los atributos de otros jugadores con `/dicecraft stats view <player>`.
 - **Comandos avanzados**:
     - `/dicecraft config fairmode <true/false>`: Activa o desactiva el modo FairMode.
     - `/dicecraft config shieldbonus <valor>`: Ajusta el bono de armadura otorgado por los escudos.
@@ -200,7 +207,7 @@ If you need help or have questions, join our Discord server! 😊
     - La tirada de ataque (*d20*).
     - Bonificaciones según el arma utilizada.
     - El daño infligido basado en la tirada de dados correspondiente.
-Todo es configurable.
+      Todo es configurable.
 
 ### **Mobs**
 - Los mobs realizan tiradas de ataque (*d20*) para determinar si sus ataques tienen éxito.
@@ -220,6 +227,7 @@ Todo es configurable.
 <details><summary>Paper</summary>
 
 - Usa comandos para gestionar configuraciones avanzadas:
+    - `/dicecraft stats <set|reset|view> [player]`: Ver o configurar atributos de jugadores.
     - `/dicecraft config fairmode <true/false>`: Activa o desactiva el modo FairMode.
     - `/dicecraft config shieldbonus <valor>`: Ajusta el bono de armadura del escudo.
     - `/dicecraft config add weapon <dado de daño> <bonus>`: Añade un arma personalizada basada en su modelo teniéndola en la mano principal.
@@ -258,4 +266,4 @@ Todo es configurable.
 
 Si necesitas ayuda o tienes preguntas, ¡únete a nuestro servidor de Discord! 😊
 
----
+--- 
