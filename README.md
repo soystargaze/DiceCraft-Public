@@ -5,7 +5,7 @@
 
 ![Discord](https://img.shields.io/discord/1079917552588816484?label=Discord&logo=discord&logoColor=white&color=6d1166&style=for-the-badge) ![](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F%20by%20stargaze-6d1166?style=for-the-badge)
 
-![Banner Logo](https://cdn.modrinth.com/data/MrR8fKPi/images/616c4847a32c8cf941ea3127cd4b4875e65b06a0.png)
+![Banner Logo](https://cdn.modrinth.com/data/MrR8fKPi/images/bcdb4d4ec3756551118e01224bc99da5f230fdab.png)
 ---
 
 ## Main Features
@@ -139,7 +139,7 @@ If you need help or have questions, join our Discord server! 😊
 
 ![Discord](https://img.shields.io/discord/1079917552588816484?label=Discord&logo=discord&logoColor=white&color=6d1166&style=for-the-badge) ![](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F%20by%20stargaze-6d1166?style=for-the-badge)
 
-![Banner Logo](https://cdn.modrinth.com/data/MrR8fKPi/images/616c4847a32c8cf941ea3127cd4b4875e65b06a0.png)
+![Banner Logo](https://cdn.modrinth.com/data/MrR8fKPi/images/bcdb4d4ec3756551118e01224bc99da5f230fdab.png)
 ---
 
 ## Características principales
