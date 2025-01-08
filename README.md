@@ -21,9 +21,25 @@
     - **Specific damage dice**: Each mob type has configurable damage dice determining the damage they deal (e.g., `d6` for zombies, `d8` for skeletons).
     - **FairMode**: Mobs gain a configurable bonus (+5 by default) when attacking players with more than 20 armor points.
 - **Armor bonus with shields**: Players receive an additional armor bonus when holding a shield in their off-hand.
+- **Customizable dice rolls**:
+    - **Public rolls**: Use `/dicecraft roll <dice>` or `/dc roll <dice>` to make a public roll visible to all players.
+    - **Private rolls**: Use `/dicecraft proll <dice>` or `/dc proll <dice>` to make a private roll visible only to you.
+    - Supported formats:
+        - `dX`: A single die with X sides.
+        - `NdX`: N dice with X sides.
+        - `NdX+Y`: N dice with X sides plus a bonus Y.
+    - Examples:
+        - `/dicecraft roll d20`: Rolls a 20-sided die publicly.
+        - `/dc roll 3d8+4`: Rolls three 8-sided dice with a bonus of +4 publicly.
+        - `/dicecraft proll 2d6`: Rolls two 6-sided dice privately.
 - **Advanced commands**:
     - **Add custom weapons**: Use `/dicecraft addweapondamage <damage die> <bonus>` to include weapons from other mods with custom rolls.
     - **Add custom mobs**: Use `/dicecraft addcustomentity <mod:entity_id> <damage die>` to configure mobs from other mods with custom rolls.
+- **Alias support**:
+    - All commands available under `dicecraft` can also be used with the alias `dc`.
+    - Examples:
+        - `/dicecraft roll d20` is equivalent to `/dc roll d20`.
+        - `/dicecraft addcustomentity mod:zombie 6` is equivalent to `/dc addcustomentity mod:zombie 6`.
 - **Advanced configuration**:
     - Modify damage rolls, bonuses, and armor values in the mod's configuration files.
     - Adjust combat mechanics for customized balance.
@@ -86,8 +102,10 @@
 <details><summary>Fabric</summary>
 
 - Use commands to add custom configurations for weapons and mobs:
-    - `/dicecraft addweapondamage <damage die> <bonus>`: Adds a weapon with custom damage dice and bonus.
-    - `/dicecraft addcustomentity <mod:entity_id> <damage die>`: Adds a mob with custom damage dice.
+    - `/dicecraft addweapondamage <damage die> <bonus>` or `/dc addweapondamage <damage die> <bonus>`: Adds a weapon with custom damage dice and bonus.
+    - `/dicecraft addcustomentity <mod:entity_id> <damage die>` or `/dc addcustomentity <mod:entity_id> <damage die>`: Adds a mob with custom damage dice.
+    - `/dicecraft roll <dice>` or `/dc roll <dice>`: Perform a public roll (e.g., `d20`, `3d6+4`).
+    - `/dicecraft proll <dice>` or `/dc proll <dice>`: Perform a private roll.
 </details>
 
 <details><summary>Paper</summary>
@@ -155,9 +173,25 @@ If you need help or have questions, join our Discord server! 😊
     - **Dados de daño específicos**: Cada tipo de mob tiene dados de daño configurables que determinan el daño que infligen (por ejemplo, `d6` para zombis, `d8` para esqueletos).
     - **FairMode**: Los mobs obtienen un bono adicional configurable (+5 por defecto) cuando atacan a jugadores con más de 20 puntos de armadura.
 - **Bono de armadura con escudo**: Los jugadores reciben un bono adicional de armadura al llevar un escudo en la mano secundaria.
+- **Tiradas de dados personalizables**:
+    - **Tiradas públicas**: Usa `/dicecraft roll <dado>` o `/dc roll <dado>` para realizar una tirada pública visible para todos los jugadores.
+    - **Tiradas privadas**: Usa `/dicecraft proll <dado>` o `/dc proll <dado>` para realizar una tirada privada visible solo para ti.
+    - Formatos soportados:
+        - `dX`: Un único dado de X caras.
+        - `NdX`: N dados de X caras.
+        - `NdX+Y`: N dados de X caras más un bono Y.
+    - Ejemplos:
+        - `/dicecraft roll d20`: Lanza un dado de 20 caras públicamente.
+        - `/dc roll 3d8+4`: Lanza tres dados de 8 caras con un bono de +4 públicamente.
+        - `/dicecraft proll 2d6`: Lanza dos dados de 6 caras en privado.
 - **Comandos avanzados**:
     - **Añadir armas personalizadas**: Usa `/dicecraft addweapondamage <dado de daño> <bonus>` para incluir armas de otros mods con tiradas personalizadas.
     - **Añadir mobs personalizados**: Usa `/dicecraft addcustomentity <mod:id_entidad> <dado de daño>` para configurar mobs de otros mods con tiradas personalizadas.
+- **Soporte de alias**:
+    - Todos los comandos disponibles bajo `dicecraft` también pueden usarse con el alias `dc`.
+    - Ejemplos:
+        - `/dicecraft roll d20` es equivalente a `/dc roll d20`.
+        - `/dicecraft addcustomentity mod:zombie 6` es equivalente a `/dc addcustomentity mod:zombie 6`.
 - **Configuración avanzada**:
     - Modifica las tiradas de daño, bonos y valores de armadura en los archivos de configuración del mod.
     - Ajusta las mecánicas del combate para un equilibrio personalizado.
@@ -220,8 +254,10 @@ If you need help or have questions, join our Discord server! 😊
 <details><summary>Fabric</summary>
 
 - Usa comandos para añadir configuraciones personalizadas de armas y mobs:
-    - `/dicecraft addweapondamage <dado de daño> <bono>`: Añade un arma con dados de daño y bono personalizado.
-    - `/dicecraft addcustomentity <mob:id_entidad> <dado de daño>`: Añade un mob con dados de daño personalizados.
+    - `/dicecraft addweapondamage <dado de daño> <bono>` o `/dc addweapondamage <dado de daño> <bono>`: Añade un arma con dados de daño y bono personalizado.
+    - `/dicecraft addcustomentity <mob:id_entidad> <dado de daño>` o `/dc addcustomentity <mob:id_entidad> <dado de daño>`: Añade un mob con dados de daño personalizados.
+    - `/dicecraft roll <dado>` o `/dc roll <dado>`: Realiza una tirada pública (ej., `d20`, `3d6+4`).
+    - `/dicecraft proll <dado>` o `/dc proll <dado>`: Realiza una tirada privada.
 </details>
 
 <details><summary>Paper</summary>
