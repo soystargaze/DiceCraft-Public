@@ -33,13 +33,13 @@
         - `/dc roll 3d8+4`: Rolls three 8-sided dice with a bonus of +4 publicly.
         - `/dicecraft proll 2d6`: Rolls two 6-sided dice privately.
 - **Advanced commands**:
-    - **Add custom weapons**: Use `/dicecraft addweapondamage <damage die> <bonus>` to include weapons from other mods with custom rolls.
-    - **Add custom mobs**: Use `/dicecraft addcustomentity <mod:entity_id> <damage die>` to configure mobs from other mods with custom rolls.
+    - **Add custom weapons**: Use `/dicecraft addweapondamage <damage dice> <bonus>` to include weapons from other mods with custom rolls.
+    - **Add custom mobs**: Use `/dicecraft addcustomentity <mod:entity_id> <damage dice> <armor>` to configure mobs from other mods with custom rolls.
 - **Alias support**:
     - All commands available under `dicecraft` can also be used with the alias `dc`.
     - Examples:
         - `/dicecraft roll d20` is equivalent to `/dc roll d20`.
-        - `/dicecraft addcustomentity mod:zombie 6` is equivalent to `/dc addcustomentity mod:zombie 6`.
+        - `/dicecraft addcustomentity mod:zombie 6 15` is equivalent to `/dc addcustomentity mod:zombie 6 15`.
 - **Advanced configuration**:
     - Modify damage rolls, bonuses, and armor values in the mod's configuration files.
     - Adjust combat mechanics for customized balance.
@@ -59,7 +59,7 @@
     - `/dicecraft config fairmode <true/false>`: Enables or disables FairMode.
     - `/dicecraft config shieldbonus <value>`: Adjusts the armor bonus provided by shields.
     - `/dicecraft config add weapon <damage die> <bonus>`: Add a custom weapon based on your model by having it in the mainhand.
-    - `/dicecraft config add entity mythicmobs <mobname> <damage die>`: Configures a MythicMobs entity with custom damage dice.
+    - `/dicecraft config add entity mythicmobs <mobname> <damage dice>`: Configures a MythicMobs entity with custom damage dice.
     - `/dicecraft config list mythicmobs`: Displays a list of available entities in MythicMobs.
     - `/dicecraft reload`: Reloads the plugin configuration.
 - **FairMode**:
@@ -102,8 +102,8 @@
 <details><summary>Fabric</summary>
 
 - Use commands to add custom configurations for weapons and mobs:
-    - `/dicecraft addweapondamage <damage die> <bonus>` or `/dc addweapondamage <damage die> <bonus>`: Adds a weapon with custom damage dice and bonus.
-    - `/dicecraft addcustomentity <mod:entity_id> <damage die>` or `/dc addcustomentity <mod:entity_id> <damage die>`: Adds a mob with custom damage dice.
+    - `/dicecraft addweapondamage <damage dice> <bonus>` or `/dc addweapondamage <damage dice> <bonus>`: Adds a weapon with custom damage dice and bonus.
+    - `/dicecraft addcustomentity <mod:entity_id> <damage dice> <armor>` or `/dc addcustomentity <mod:entity_id> <damage dice> <armor>`: Adds a mob with custom damage dice and armor.
     - `/dicecraft roll <dice>` or `/dc roll <dice>`: Perform a public roll (e.g., `d20`, `3d6+4`).
     - `/dicecraft proll <dice>` or `/dc proll <dice>`: Perform a private roll.
 </details>
@@ -115,7 +115,7 @@
     - `/dicecraft config fairmode <true/false>`: Enables or disables FairMode.
     - `/dicecraft config shieldbonus <value>`: Adjusts the shield armor bonus.
     - `/dicecraft config add weapon <damage die> <bonus>`: Add a custom weapon based on your model by having it in the mainhand.
-    - `/dicecraft config add entity mythicmobs <mobname> <damage die>`: Configures custom mobs from MythicMobs.
+    - `/dicecraft config add entity mythicmobs <mobname> <damage dice>`: Configures custom mobs from MythicMobs.
     - `/dicecraft config list mythicmobs`: Lists entities from MythicMobs.
     - `/dicecraft reload`: Reloads the plugin configuration.
 </details>
@@ -186,12 +186,12 @@ If you need help or have questions, join our Discord server! 😊
         - `/dicecraft proll 2d6`: Lanza dos dados de 6 caras en privado.
 - **Comandos avanzados**:
     - **Añadir armas personalizadas**: Usa `/dicecraft addweapondamage <dado de daño> <bonus>` para incluir armas de otros mods con tiradas personalizadas.
-    - **Añadir mobs personalizados**: Usa `/dicecraft addcustomentity <mod:id_entidad> <dado de daño>` para configurar mobs de otros mods con tiradas personalizadas.
+    - **Añadir mobs personalizados**: Usa `/dicecraft addcustomentity <mod:id_entidad> <dado de daño> <armadura>` para configurar mobs de otros mods con tiradas personalizadas.
 - **Soporte de alias**:
     - Todos los comandos disponibles bajo `dicecraft` también pueden usarse con el alias `dc`.
     - Ejemplos:
         - `/dicecraft roll d20` es equivalente a `/dc roll d20`.
-        - `/dicecraft addcustomentity mod:zombie 6` es equivalente a `/dc addcustomentity mod:zombie 6`.
+        - `/dicecraft addcustomentity mod:zombie 6 15` es equivalente a `/dc addcustomentity mod:zombie 6 15`.
 - **Configuración avanzada**:
     - Modifica las tiradas de daño, bonos y valores de armadura en los archivos de configuración del mod.
     - Ajusta las mecánicas del combate para un equilibrio personalizado.
@@ -255,7 +255,7 @@ If you need help or have questions, join our Discord server! 😊
 
 - Usa comandos para añadir configuraciones personalizadas de armas y mobs:
     - `/dicecraft addweapondamage <dado de daño> <bono>` o `/dc addweapondamage <dado de daño> <bono>`: Añade un arma con dados de daño y bono personalizado.
-    - `/dicecraft addcustomentity <mob:id_entidad> <dado de daño>` o `/dc addcustomentity <mob:id_entidad> <dado de daño>`: Añade un mob con dados de daño personalizados.
+    - `/dicecraft addcustomentity <mob:id_entidad> <dado de daño>` o `/dc addcustomentity <mob:id_entidad> <dado de daño> <armadura>`: Añade un mob con dados de daño y armadura personalizadas.
     - `/dicecraft roll <dado>` o `/dc roll <dado>`: Realiza una tirada pública (ej., `d20`, `3d6+4`).
     - `/dicecraft proll <dado>` o `/dc proll <dado>`: Realiza una tirada privada.
 </details>
