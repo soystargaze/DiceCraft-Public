@@ -62,6 +62,19 @@
     - `/dicecraft config add entity mythicmobs <mobname> <damage dice>`: Configures a MythicMobs entity with custom damage dice.
     - `/dicecraft config list mythicmobs`: Displays a list of available entities in MythicMobs.
     - `/dicecraft reload`: Reloads the plugin configuration.
+    - `/dicecraft roll <dice>` or `/dc roll <dice>`: Perform a roll (e.g., `d20`, `3d6+4`).
+    - `/dicecraft dmmode set <true/false>`: Enables or disables DM mode.
+    - `/dicecraft dmmode status`: Shows the current DM mode status.
+- **Customizable dice rolls**:
+    - Use `/dicecraft roll <dice>` or `/dc roll <dice>` to make a public roll visible to all players.
+    - Supported formats:
+        - `dX`: A single die with X sides.
+        - `NdX`: N dice with X sides.
+        - `NdX+Y`: N dice with X sides plus a bonus Y.
+    - Examples:
+        - `/dicecraft roll d20`: Rolls a 20-sided dice.
+        - `/dc roll 3d8+4`: Rolls three 8-sided dice with a bonus of +4.
+        - `/dicecraft roll 2d6`: Rolls two 6-sided dice.
 - **FairMode**:
     - Improves mob attacks against players with high armor values.
 - **Integration with MythicMobs**:
@@ -69,6 +82,10 @@
 - **Advanced configuration**:
     - Dynamic adjustments to damage and armor.
     - Support for custom weapon and mob models.
+    - Support for custom MythicMobs entities.
+    - Customizable combat mechanics.
+    - Multilingual support.
+    - Full customization of GUIs and messages.
 </details>
 
 ---
@@ -118,6 +135,9 @@
     - `/dicecraft config add entity mythicmobs <mobname> <damage dice>`: Configures custom mobs from MythicMobs.
     - `/dicecraft config list mythicmobs`: Lists entities from MythicMobs.
     - `/dicecraft reload`: Reloads the plugin configuration.
+    - `/dicecraft roll <dice>` or `/dc roll <dice>`: Perform a roll (e.g., `d20`, `3d6+4`).
+    - `/dicecraft dmmode set <true/false>`: Enables or disables DM mode.
+    - `/dicecraft dmmode status`: Shows the current DM mode status.
 </details>
 
 ---
@@ -214,6 +234,19 @@ If you need help or have questions, join our Discord server! 😊
     - `/dicecraft config add entity mythicmobs <mobname> <dado de daño>`: Configura un mob de MythicMobs con dados de daño personalizados.
     - `/dicecraft config list mythicmobs`: Muestra una lista de entidades disponibles en MythicMobs.
     - `/dicecraft reload`: Recarga las configuraciones del plugin.
+    - `/dicecraft roll <dado>` o `/dc roll <dado>`: Realiza una tirada pública (ej., `d20`, `3d6+4`).
+    - `/dicecraft dmmode set <true/false>`: Activa o desactiva el modo DM.
+    - `/dicecraft dmmode status`: Muestra el estado actual del modo DM.
+- **Tiradas de dados personalizables**:
+- Usa `/dicecraft roll <dado>` o `/dc roll <dado>` para realizar una tirada pública visible para todos los jugadores.
+    - Formatos soportados:
+        - `dX`: Un único dado de X caras.
+        - `NdX`: N dados de X caras.
+        - `NdX+Y`: N dados de X caras más un bono Y.
+    - Ejemplos:
+        - `/dicecraft roll d20`: Lanza un dado de 20 caras.
+        - `/dc roll 3d8+4`: Lanza tres dados de 8 caras con un bono de +4.
+        - `/dicecraft roll 2d6`: Lanza dos dados de 6 caras.
 - **FairMode**:
     - Mejora los ataques de mobs contra jugadores con altos valores de armadura.
 - **Integración con MythicMobs**:
@@ -221,6 +254,10 @@ If you need help or have questions, join our Discord server! 😊
 - **Configuración avanzada**:
     - Ajustes dinámicos de daño y armadura.
     - Soporte para modelos personalizados de armas y mobs.
+    - Soporte para entidades personalizadas de MythicMobs.
+    - Mecánicas de combate personalizables.
+    - Soporte multilingüe.
+    - Personalización completa de GUIs y mensajes.
 </details>
 
 ---
@@ -270,6 +307,9 @@ If you need help or have questions, join our Discord server! 😊
     - `/dicecraft config add entity mythicmobs <mobname> <dado de daño>`: Configura mobs personalizados desde MythicMobs.
     - `/dicecraft config list mythicmobs`: Lista las entidades de MythicMobs.
     - `/dicecraft reload`: Recarga las configuraciones del plugin.
+    - `/dicecraft roll <dado>` o `/dc roll <dado>`: Realiza una tirada (ej., `d20`, `3d6+4`).
+    - `/dicecraft dmmode set <true/false>`: Activa o desactiva el modo DM.
+    - `/dicecraft dmmode status`: Muestra el estado actual del modo DM.
 </details>
 
 ---
