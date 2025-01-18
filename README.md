@@ -73,6 +73,7 @@
         - `dX`: A single die with X sides.
         - `NdX`: N dice with X sides.
         - `NdX+Y`: N dice with X sides plus a bonus Y.
+        - `NdX-Y`: N dice with X sides minus a bonus Y.
     - Examples:
         - `/dicecraft roll d20`: Rolls a 20-sided dice.
         - `/dc roll 3d8+4`: Rolls three 8-sided dice with a bonus of +4.
@@ -121,7 +122,6 @@
 <details><summary>Fabric</summary>
 
 - Use commands to add custom configurations for weapons and mobs:
-
     - `/dicecraft addweapondamage <damage dice> <bonus>` or `/dc addweapondamage <damage dice> <bonus>`: Adds a weapon with custom damage dice and bonus.
     - `/dicecraft addcustomentity <mod:entity_id> <damage dice> <armor>` or `/dc addcustomentity <mod:entity_id> <damage dice> <armor>`: Adds a mob with custom damage dice and armor.
     - `/dicecraft roll <dice>` or `/dc roll <dice>`: Perform a public roll (e.g., `d20`, `3d6+4`).
@@ -131,7 +131,6 @@
 <details><summary>Paper</summary>
 
 - Use commands to manage advanced configurations:
-
     - `/dicecraft stats <set|reset|view> [player]`: View or configure player attributes.
     - `/dicecraft config fairmode <true/false>`: Enables or disables FairMode.
     - `/dicecraft config shieldbonus <value>`: Adjusts the shield armor bonus.
@@ -244,11 +243,12 @@ If you need help or have questions, join our Discord server! 😊
     - `/dicecraft dmmode set <true/false>`: Activa o desactiva el modo DM.
     - `/dicecraft dmmode status`: Muestra el estado actual del modo DM.
 - **Tiradas de dados personalizables**:
-- Usa `/dicecraft roll <dado>` para realizar una tirada pública visible para todos los jugadores.
+- Usa `/dicecraft roll <dado>` para realizar una tirada visible para todos los jugadores.
     - Formatos soportados:
         - `dX`: Un único dado de X caras.
         - `NdX`: N dados de X caras.
         - `NdX+Y`: N dados de X caras más un bono Y.
+        - `NdX-Y`: N dados de X caras menos un bono Y.
     - Ejemplos:
         - `/dicecraft roll d20`: Lanza un dado de 20 caras.
         - `/dc roll 3d8+4`: Lanza tres dados de 8 caras con un bono de +4.
@@ -297,7 +297,6 @@ If you need help or have questions, join our Discord server! 😊
 <details><summary>Fabric</summary>
 
 - Usa comandos para añadir configuraciones personalizadas de armas y mobs:
-
     - `/dicecraft addweapondamage <dado de daño> <bono>` o `/dc addweapondamage <dado de daño> <bono>`: Añade un arma con dados de daño y bono personalizado.
     - `/dicecraft addcustomentity <mob:id_entidad> <dado de daño>` o `/dc addcustomentity <mob:id_entidad> <dado de daño> <armadura>`: Añade un mob con dados de daño y armadura personalizadas.
     - `/dicecraft roll <dado>` o `/dc roll <dado>`: Realiza una tirada pública (ej., `d20`, `3d6+4`).
@@ -307,7 +306,6 @@ If you need help or have questions, join our Discord server! 😊
 <details><summary>Paper</summary>
 
 - Usa comandos para gestionar configuraciones avanzadas:
-
     - `/dicecraft stats <set|reset|view> [player]`: Ver o configurar atributos de jugadores.
     - `/dicecraft config fairmode <true/false>`: Activa o desactiva el modo FairMode.
     - `/dicecraft config shieldbonus <valor>`: Ajusta el bono de armadura del escudo.
