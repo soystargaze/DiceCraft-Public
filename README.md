@@ -8,7 +8,7 @@
 
 ---
 
-## 🎲 Core Philosophy
+## ❖ Core Philosophy
 
 - **Requires Minecraft 26.1.2** — built exclusively for modern Paper
 - **Two modular game modes**: DM Mode and Turn Mode — enable only what you want
@@ -19,7 +19,7 @@
 
 ---
 
-## ⚙️ DM Mode — The Master Switch
+## ➤ DM Mode — The Master Switch
 
 DM Mode is the heart of DiceCraft. When **ON**, every combat roll, stat check, and resource matters. When **OFF**, players can still use abilities freely with no costs, no restrictions, and no required class unlock. Both modes coexist on the same server.
 
@@ -49,7 +49,7 @@ DM Mode is the heart of DiceCraft. When **ON**, every combat roll, stat check, a
 
 ---
 
-## 🗡️ Combat System
+## ➤ Combat System
 
 Every hit, miss, and crit is resolved with real dice mechanics.
 
@@ -96,7 +96,7 @@ Fire, fall, poison, drowning and other hazards trigger a **d20 saving throw vs. 
 
 ---
 
-## ⚔️ Turn Mode — Initiative-Based Combat
+## ➤ Turn Mode — Initiative-Based Combat
 
 Opt into D&D-style turn combat for tactical encounters.
 
@@ -117,7 +117,7 @@ Opt into D&D-style turn combat for tactical encounters.
 
 ---
 
-## 📊 D&D Attribute System
+## ➤ D&D Attribute System
 
 Six classic stats shape everything from combat to trade prices.
 
@@ -148,7 +148,7 @@ All values configurable per-modifier in `stats.yml`. Stats cap at 20 after ASI i
 
 ---
 
-## 🧙 Class System — 12 D&D Classes
+## ➤ Class System — 12 D&D Classes
 
 <details>
 <summary>The 12 Classes</summary>
@@ -199,7 +199,7 @@ All values configurable per-modifier in `stats.yml`. Stats cap at 20 after ASI i
 
 ---
 
-## ✨ 173 Abilities
+## ➤ 173 Abilities
 
 Every class has a full roster of active and passive abilities, activated through a loadout system without opening your inventory.
 
@@ -261,7 +261,7 @@ Every class has a full roster of active and passive abilities, activated through
 
 ---
 
-## 💀 Death Saving Throws
+## ➤ Death Saving Throws
 
 Death in DiceCraft is a dramatic moment, not a respawn screen.
 
@@ -287,7 +287,7 @@ When HP reaches 0, the player enters a downed crawl state — incoming damage is
 
 ---
 
-## 🗺️ RPG Module — Dialogues, Quests, NPCs, Checks & Affinity
+## ➤ RPG Module — Dialogues, Quests, NPCs, Checks & Affinity
 
 A full narrative and quest system built directly into the plugin.
 
@@ -356,7 +356,7 @@ Full GUI editors for server staff — no external tools needed:
 
 ---
 
-## 🧪 Spell Scrolls
+## ➤ Spell Scrolls
 
 <details>
 <summary>Scroll System</summary>
@@ -373,7 +373,7 @@ Full GUI editors for server staff — no external tools needed:
 
 ---
 
-## 🏆 XP & Rewards
+## ➤ XP & Rewards
 
 <details>
 <summary>XP Sources (all configurable)</summary>
@@ -393,7 +393,7 @@ Full GUI editors for server staff — no external tools needed:
 
 ---
 
-## 🛠️ Commands & Permissions
+## ➤ Commands & Permissions
 
 <details>
 <summary>Full Command Reference</summary>
