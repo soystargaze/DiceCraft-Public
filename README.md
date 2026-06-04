@@ -1,351 +1,426 @@
-<details><summary>English</summary>
+# DiceCraft | Bring D&D to your Minecraft Server
 
-# DiceCraft
-**DiceCraft** is a modular project for Minecraft that introduces combat mechanics inspired by classic role-playing systems, such as *Dungeons & Dragons*.
+**DiceCraft** transforms your Paper server into a full tabletop RPG experience — d20 rolls, six D&D stats, 12 classes, 173 abilities, branching quests, dialogue NPCs, and more. Every system is modular and configurable, so you decide how deep the rabbit hole goes.
 
-![Discord](https://img.shields.io/discord/1079917552588816484?label=Discord&logo=discord&logoColor=white&color=6d1166&style=for-the-badge) ![](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F%20by%20stargaze-6d1166?style=for-the-badge)
+[![Discord](https://img.shields.io/discord/1369689692244803674?label=Discord&logo=discord&logoColor=white&color=7B2D8B&style=for-the-badge)](https://soystargaze.com/discord) ![Made with ❤️ by Stargaze](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F%20by%20stargaze-7B2D8B?style=for-the-badge)
 
-![Banner Logo](https://cdn.modrinth.com/data/MrR8fKPi/images/bcdb4d4ec3756551118e01224bc99da5f230fdab.png)
+![Banner](https://camo.githubusercontent.com/36e1eecbfcc0c395567b69f459962ba0225d2668b8083d4a2847caa9294c1644/68747470733a2f2f63646e2e6d6f6472696e74682e636f6d2f646174612f4d725238664b50692f696d616765732f626364623464346563333735363535313131386530313232346263393964613566323330666461622e706e67)
+
 ---
 
-## Main Features
+## 🎲 Core Philosophy
 
-### **Fabric**
-<details><summary>Mod</summary>
+- **Requires Minecraft 26.1.2** — built exclusively for modern Paper
+- **Two modular game modes**: DM Mode and Turn Mode — enable only what you want
+- **GUI-first workflow**: stat setup, class management, ability loadouts, quest tracking, and NPC editing all from in-game menus
+- **SQL persistence**: SQLite out of the box, with MySQL/MariaDB/PostgreSQL support
+- **Multi-language**: English and Spanish included; fully translatable via MiniMessage
+- **12 config files**: fine-tune every dice value, mob AC, enchant bonus, and passive effect
 
-- **Dice rolls for attacks**: Players perform *d20* rolls when attacking, determining the success of the attack based on the target's armor.
-- **Weapon bonuses**: Each weapon has a bonus that influences attack and damage rolls.
-- **Custom damage**: Damage dealt is calculated using dice rolls specific to each weapon type (e.g., `d4` for basic attacks, `d12` for advanced weapons).
-- **Mob support**:
-    - Mobs also roll for attacks against players, adding a level of randomness to combat.
-    - **Specific damage dice**: Each mob type has configurable damage dice determining the damage they deal (e.g., `d6` for zombies, `d8` for skeletons).
-    - **FairMode**: Mobs gain a configurable bonus (+5 by default) when attacking players with more than 20 armor points.
-- **Armor bonus with shields**: Players receive an additional armor bonus when holding a shield in their off-hand.
-- **Customizable dice rolls**:
-    - **Public rolls**: Use `/dicecraft roll <dice>` or `/dc roll <dice>` to make a public roll visible to all players.
-    - **Private rolls**: Use `/dicecraft proll <dice>` or `/dc proll <dice>` to make a private roll visible only to you.
-    - Supported formats:
-        - `dX`: A single die with X sides.
-        - `NdX`: N dice with X sides.
-        - `NdX+Y`: N dice with X sides plus a bonus Y.
-    - Examples:
-        - `/dicecraft roll d20`: Rolls a 20-sided die publicly.
-        - `/dc roll 3d8+4`: Rolls three 8-sided dice with a bonus of +4 publicly.
-        - `/dicecraft proll 2d6`: Rolls two 6-sided dice privately.
-- **Advanced commands**:
-    - **Add custom weapons**: Use `/dicecraft addweapondamage <damage dice> <bonus>` to include weapons from other mods with custom rolls.
-    - **Add custom mobs**: Use `/dicecraft addcustomentity <mod:entity_id> <damage dice> <armor>` to configure mobs from other mods with custom rolls.
-- **Alias support**:
-    - All commands available under `dicecraft` can also be used with the alias `dc`.
-    - Examples:
-        - `/dicecraft roll d20` is equivalent to `/dc roll d20`.
-        - `/dicecraft addcustomentity mod:zombie 6 15` is equivalent to `/dc addcustomentity mod:zombie 6 15`.
-- **Advanced configuration**:
-    - Modify damage rolls, bonuses, and armor values in the mod's configuration files.
-    - Adjust combat mechanics for customized balance.
-- **Multilingual support**: Fully translated into English and Spanish, with plans to expand to more languages.
+---
+
+## ⚙️ DM Mode — The Master Switch
+
+DM Mode is the heart of DiceCraft. When **ON**, every combat roll, stat check, and resource matters. When **OFF**, players can still use abilities freely with no costs, no restrictions, and no required class unlock. Both modes coexist on the same server.
+
+<details>
+<summary>DM Mode ON — Full RPG Rules</summary>
+
+- All attacks use **d20 + stat modifier vs. Armor Class**
+- D&D attributes become effective (jump, speed, regen, trade prices…)
+- Spell slots, Ki Points, and Rage uses are tracked and consumed
+- XP and class leveling are active
+- **Death Saving Throws** replace instant death (3 successes / 3 failures)
+- Mob attacks roll d20 vs your AC
+- Dialogue skill checks use your stats + affinity bonuses
+
+</details>
+
+<details>
+<summary>DM Mode OFF — Casual Play</summary>
+
+- Abilities can still be activated (configurable)
+- No resource costs — free spell slots, Ki, and Rage
+- No level requirements enforced
+- Skill checks use plain d20 vs DC (no modifiers, no affinity bonus)
+- Attribute passives only if `apply_without_dm_mode: true`
+
 </details>
 
 ---
 
-### **Paper**
-<details><summary>Plugin</summary>
+## 🗡️ Combat System
 
-- **Compatibility with Paper servers**: Extends the mod's mechanics for multiplayer servers.
-- **Alias support**:
-    - All commands available under `dicecraft` can also be used with the alias `dc`.
-- **Custom Attributes System**:
-    - Players can manage their attributes using `/dicecraft stats <set|reset|view>`.
-    - Admins can view other players' stats with `/dicecraft stats view <player>`.
-- **Advanced commands**:
-    - `/dicecraft config fairmode <true/false>`: Enables or disables FairMode.
-    - `/dicecraft config shieldbonus <value>`: Adjusts the armor bonus provided by shields.
-    - `/dicecraft config add weapon <damage die> <bonus>`: Add a custom weapon based on your model by having it in the mainhand.
-    - `/dicecraft config add entity mythicmobs <mobname> <damage dice>`: Configures a MythicMobs entity with custom damage dice.
-    - `/dicecraft config list mythicmobs`: Displays a list of available entities in MythicMobs.
-    - `/dicecraft reload`: Reloads the plugin configuration.
-    - `/dicecraft roll <dice>` or `/dc roll <dice>`: Perform a roll (e.g., `d20`, `3d6+4`).
-    - `/dicecraft dmmode set <true/false>`: Enables or disables DM mode.
-    - `/dicecraft dmmode status`: Shows the current DM mode status.
-- **Customizable dice rolls**:
-    - Use `/dicecraft roll <dice>` to make a roll visible to all players.
-    - Supported formats:
-        - `dX`: A single die with X sides.
-        - `NdX`: N dice with X sides.
-        - `NdX+Y`: N dice with X sides plus a bonus Y.
-        - `NdX-Y`: N dice with X sides minus a bonus Y.
-    - Examples:
-        - `/dicecraft roll d20`: Rolls a 20-sided dice.
-        - `/dc roll 3d8+4`: Rolls three 8-sided dice with a bonus of +4.
-        - `/dicecraft roll 2d6`: Rolls two 6-sided dice.
-- **FairMode**:
-    - Improves mob attacks against players with high armor values.
-- **Integration with MythicMobs**:
-    - Custom configuration for mobs created with MythicMobs.
-- **Advanced configuration**:
-    - Dynamic adjustments to damage and armor.
-    - Support for custom weapon and mob models.
-    - Support for custom MythicMobs entities.
-    - Customizable combat mechanics.
-    - Multilingual support.
-    - Full customization of GUIs and messages.
+Every hit, miss, and crit is resolved with real dice mechanics.
+
+<details>
+<summary>Player Melee & Ranged Attacks</summary>
+
+- **Roll**: d20 + weapon bonus + primary class stat modifier + enchantment bonuses + potion effects
+- **vs. AC**: base armor per slot + shield bonus (+2, configurable) + enchantments
+- **Natural 20** → critical hit (2× damage dice)
+- **Natural 1** → critical failure (0 damage)
+- **Damage dice by weapon**:
+  - Wooden Sword: 1d4 · Golden Sword: 1d4+1 · Stone Sword: 1d6+1
+  - Iron Sword: 1d8+2 · Diamond Sword: 1d10+3 · Netherite Sword: 1d12+4
+  - Bow: 1d6+2 · Crossbow: 1d8+3 · Trident: 1d10+3
+
+</details>
+
+<details>
+<summary>Mob Attacks</summary>
+
+- ~25 mob types each with their own **damage dice and AC** (configured in `config.yml`)
+- Examples: Zombie (1d6, AC 8) · Skeleton (1d6, AC 12) · Warden (1d30, AC 12) · Creeper (1d20, AC 8)
+- **FairMode**: if player AC exceeds a threshold (15/20), mobs gain a flat attack bonus (+3/+5)
+- Slimes and Magma Cubes scale dice by size (small/medium/large)
+
+</details>
+
+<details>
+<summary>Enchantment & Potion Bonuses</summary>
+
+Vanilla enchants and potions grant **flat dice bonuses** instead of percentages:
+- Sharpness: +1 per level · Fire Aspect: +1 fire dmg + burn per level · Smite: +2 vs undead · Knockback: +0.4 force per level
+- Power: +1 per level (bow) · Protection: -0.5 damage per total armor level (max 8 reduction) · Thorns: +1 reflect per level
+- Strength: +2 · Weakness: -2 · Haste/Slowness: ±0.5 · Resistance: -1.5 per level (max 10 reduction)
+
+</details>
+
+<details>
+<summary>Environmental & Indirect Damage</summary>
+
+Fire, fall, poison, drowning and other hazards trigger a **d20 saving throw vs. DC 10** (configurable). Fail it, and you take the hit.
+
 </details>
 
 ---
 
-## Installation
+## ⚔️ Turn Mode — Initiative-Based Combat
 
-### **Requirements**
-- Minecraft 1.21.1 or 1.21.4+.
-- [Fabric Loader](https://fabricmc.net/use) and [Fabric API](https://modrinth.com/mod/fabric-api) for the mod.
-- A Paper server for the plugin.
+Opt into D&D-style turn combat for tactical encounters.
 
----
+<details>
+<summary>Turn Mode Features</summary>
 
-## Usage
-
-### **Players**
-- Perform a normal attack with any weapon. The mod will automatically calculate:
-    - The attack roll (*d20*).
-    - Bonuses based on the weapon used.
-    - The damage dealt based on the corresponding dice roll.
-      Everything is configurable.
-
-### **Mobs**
-- Mobs perform attack rolls (*d20*) to determine if their attacks succeed.
-- Each mob has configurable damage dice to calculate the damage dealt on a successful attack.
-
-### **FairMode**
-- Mobs gain a configurable bonus (+5 by default) when attacking players with more than 20 armor points.
-
-### **Administrators**
-<details><summary>Fabric</summary>
-
-- Use commands to add custom configurations for weapons and mobs:
-    - `/dicecraft addweapondamage <damage dice> <bonus>` or `/dc addweapondamage <damage dice> <bonus>`: Adds a weapon with custom damage dice and bonus.
-    - `/dicecraft addcustomentity <mod:entity_id> <damage dice> <armor>` or `/dc addcustomentity <mod:entity_id> <damage dice> <armor>`: Adds a mob with custom damage dice and armor.
-    - `/dicecraft roll <dice>` or `/dc roll <dice>`: Perform a public roll (e.g., `d20`, `3d6+4`).
-    - `/dicecraft proll <dice>` or `/dc proll <dice>`: Perform a private roll.
-</details>
-
-<details><summary>Paper</summary>
-
-- Use commands to manage advanced configurations:
-    - `/dicecraft stats <set|reset|view> [player]`: View or configure player attributes.
-    - `/dicecraft config fairmode <true/false>`: Enables or disables FairMode.
-    - `/dicecraft config shieldbonus <value>`: Adjusts the shield armor bonus.
-    - `/dicecraft config add weapon <damage die> <bonus>`: Add a custom weapon based on your model by having it in the mainhand.
-    - `/dicecraft config add entity mythicmobs <mobname> <damage dice>`: Configures custom mobs from MythicMobs.
-    - `/dicecraft config list mythicmobs`: Lists entities from MythicMobs.
-    - `/dicecraft reload`: Reloads the plugin configuration.
-    - `/dicecraft roll <dice>`: Perform a roll (e.g., `d20`, `3d6+4`).
-    - `/dicecraft dmmode set <true/false>`: Enables or disables DM mode.
-    - `/dicecraft dmmode status`: Shows the current DM mode status.
-</details>
-
----
-
-## Example Mechanics
-
-1. **Player attacks a mob**:
-    - An attack roll is made with a *d20*:
-      ```
-      Attack Roll: 15 + weapon bonus.
-      Mob Armor Value: 14.
-      ```
-    - If the roll exceeds the armor value, the attack succeeds.
-    - Then, a damage roll is made based on the weapon:
-      ```
-      Damage Dealt: 1d8 (iron sword) → Result: 6.
-      ```
-
-2. **Mob attacks a player**:
-    - The mob makes an attack roll with a *d20* (including the FairMode bonus, if applicable).
-    - If the roll exceeds the player's armor, the attack succeeds.
-    - Damage is determined with a specific die configured for the mob:
-      ```
-      Damage Dealt by Zombie: 1d6 → Result: 4.
-      ```
-
----
-
-## Support
-
-If you need help or have questions, join our Discord server! 😊
+- **Auto-start**: entities within range (default 3 blocks) auto-join the session
+- **BossBar**: shows current combatant, turn count, and initiative order
+- **Movement range**: 10 blocks per turn (configurable)
+- **Stealth system**: hold Shift for 3s → tactical invisibility; stealth attacks deal bonus damage (default 2d8+4)
+- **Flee mechanic**: roll d20 vs escape DC to leave combat
+- **Balance mode**: fighting multiple mobs? Get bonus attacks (per 2 mobs, configurable)
+- **Glow highlight**: active combatant glows for clarity
+- **Manual/auto turn advance**: pass manually or auto-advance on inactivity
+- **Title & ActionBar** real-time combat feedback
 
 </details>
 
-# DiceCraft
-**DiceCraft** es un proyecto modular para Minecraft que introduce mecánicas de combate inspiradas en sistemas de rol clásicos, como *Dungeons & Dragons*.
-
-![Discord](https://img.shields.io/discord/1079917552588816484?label=Discord&logo=discord&logoColor=white&color=6d1166&style=for-the-badge) ![](https://img.shields.io/badge/Made%20with-%E2%9D%A4%EF%B8%8F%20by%20stargaze-6d1166?style=for-the-badge)
-
-![Banner Logo](https://cdn.modrinth.com/data/MrR8fKPi/images/bcdb4d4ec3756551118e01224bc99da5f230fdab.png)
 ---
 
-## Características principales
+## 📊 D&D Attribute System
 
-### **Fabric**
-<details><summary>Mod</summary>
+Six classic stats shape everything from combat to trade prices.
 
-- **Tiradas de dados para ataques**: Los jugadores realizan tiradas de *d20* al atacar, determinando el éxito del ataque según la armadura del objetivo.
-- **Bonificaciones por armas**: Cada arma tiene un bonificador que influye en las tiradas de ataque y daño.
-- **Daño personalizado**: El daño infligido se calcula con tiradas de dados específicos para cada tipo de arma (por ejemplo, `d4` para ataques básicos, `d12` para armas avanzadas).
-- **Soporte para mobs**:
-    - Los mobs también realizan tiradas de ataque contra los jugadores, añadiendo un nivel de aleatoriedad al combate.
-    - **Dados de daño específicos**: Cada tipo de mob tiene dados de daño configurables que determinan el daño que infligen (por ejemplo, `d6` para zombis, `d8` para esqueletos).
-    - **FairMode**: Los mobs obtienen un bono adicional configurable (+5 por defecto) cuando atacan a jugadores con más de 20 puntos de armadura.
-- **Bono de armadura con escudo**: Los jugadores reciben un bono adicional de armadura al llevar un escudo en la mano secundaria.
-- **Tiradas de dados personalizables**:
-    - **Tiradas públicas**: Usa `/dicecraft roll <dado>` o `/dc roll <dado>` para realizar una tirada pública visible para todos los jugadores.
-    - **Tiradas privadas**: Usa `/dicecraft proll <dado>` o `/dc proll <dado>` para realizar una tirada privada visible solo para ti.
-    - Formatos soportados:
-        - `dX`: Un único dado de X caras.
-        - `NdX`: N dados de X caras.
-        - `NdX+Y`: N dados de X caras más un bono Y.
-    - Ejemplos:
-        - `/dicecraft roll d20`: Lanza un dado de 20 caras públicamente.
-        - `/dc roll 3d8+4`: Lanza tres dados de 8 caras con un bono de +4 públicamente.
-        - `/dicecraft proll 2d6`: Lanza dos dados de 6 caras en privado.
-- **Comandos avanzados**:
-    - **Añadir armas personalizadas**: Usa `/dicecraft addweapondamage <dado de daño> <bonus>` para incluir armas de otros mods con tiradas personalizadas.
-    - **Añadir mobs personalizados**: Usa `/dicecraft addcustomentity <mod:id_entidad> <dado de daño> <armadura>` para configurar mobs de otros mods con tiradas personalizadas.
-- **Soporte de alias**:
-    - Todos los comandos disponibles bajo `dicecraft` también pueden usarse con el alias `dc`.
-    - Ejemplos:
-        - `/dicecraft roll d20` es equivalente a `/dc roll d20`.
-        - `/dicecraft addcustomentity mod:zombie 6 15` es equivalente a `/dc addcustomentity mod:zombie 6 15`.
-- **Configuración avanzada**:
-    - Modifica las tiradas de daño, bonos y valores de armadura en los archivos de configuración del mod.
-    - Ajusta las mecánicas del combate para un equilibrio personalizado.
-- **Soporte multilingüe**: Traducciones completas al inglés y español, con planes para expandir a más idiomas.
+<details>
+<summary>The Six Stats (Point-Buy, 27 points, range 8–15)</summary>
+
+- **STR — Strength**: jump height, knockback force, knockback resistance, block break speed
+- **DEX — Dexterity**: stealth movement speed, attack speed, luck (loot), fall damage reduction
+- **CON — Constitution**: max health bonus, oxygen capacity, burn time reduction, hunger drain resistance
+- **INT — Intelligence**: enchanting cost reduction, anvil cost reduction, XP gain bonus
+- **WIS — Wisdom**: potion effect duration, mob perception range, natural regen rate
+- **CHA — Charisma**: villager trade discounts, pet health and damage bonuses
+
+All values configurable per-modifier in `stats.yml`. Stats cap at 20 after ASI improvements.
+
+</details>
+
+<details>
+<summary>Stat Configuration</summary>
+
+- **GUI setup**: right-click a bookshelf on first login, or `/dc stats set`
+- **Point-buy**: 27 points, range 8–15 per stat, real-time validation
+- **Modifier formula**: `(stat - 10) / 2` (D&D standard)
+- **ASI**: +2 to one stat or +1 to two stats, every 4 levels of the same class
+- **Reset items**: Tome of Reincarnation, Scroll of Amnesia, Crystal of Rebirth (physical items, consumed on use)
+
 </details>
 
 ---
 
-### **Paper**
-<details><summary>Plugin</summary>
+## 🧙 Class System — 12 D&D Classes
 
-- **Compatibilidad con servidores Paper**: Extiende las mecánicas del mod para servidores multijugador.
-- **Soporte de alias**:
-    - Todos los comandos disponibles bajo `dicecraft` también pueden usarse con el alias `dc`.
-- **Sistema de Atributos Personalizados**:
-    - Los jugadores pueden gestionar sus atributos con `/dicecraft stats <set|reset|view>`.
-    - Los administradores pueden ver los atributos de otros jugadores con `/dicecraft stats view <player>`.
-- **Comandos avanzados**:
-    - `/dicecraft config fairmode <true/false>`: Activa o desactiva el modo FairMode.
-    - `/dicecraft config shieldbonus <valor>`: Ajusta el bono de armadura otorgado por los escudos.
-    - `/dicecraft config add weapon <dado de daño> <bonus>`: Añade un arma personalizada basada en su modelo teniéndola en la mano principal.
-    - `/dicecraft config add entity mythicmobs <mobname> <dado de daño>`: Configura un mob de MythicMobs con dados de daño personalizados.
-    - `/dicecraft config list mythicmobs`: Muestra una lista de entidades disponibles en MythicMobs.
-    - `/dicecraft reload`: Recarga las configuraciones del plugin.
-    - `/dicecraft roll <dado>`: Realiza una tirada pública (ej., `d20`, `3d6+4`).
-    - `/dicecraft dmmode set <true/false>`: Activa o desactiva el modo DM.
-    - `/dicecraft dmmode status`: Muestra el estado actual del modo DM.
-- **Tiradas de dados personalizables**:
-- Usa `/dicecraft roll <dado>` para realizar una tirada visible para todos los jugadores.
-    - Formatos soportados:
-        - `dX`: Un único dado de X caras.
-        - `NdX`: N dados de X caras.
-        - `NdX+Y`: N dados de X caras más un bono Y.
-        - `NdX-Y`: N dados de X caras menos un bono Y.
-    - Ejemplos:
-        - `/dicecraft roll d20`: Lanza un dado de 20 caras.
-        - `/dc roll 3d8+4`: Lanza tres dados de 8 caras con un bono de +4.
-        - `/dicecraft roll 2d6`: Lanza dos dados de 6 caras.
-- **FairMode**:
-    - Mejora los ataques de mobs contra jugadores con altos valores de armadura.
-- **Integración con MythicMobs**:
-    - Configuración personalizada para mobs creados con MythicMobs.
-- **Configuración avanzada**:
-    - Ajustes dinámicos de daño y armadura.
-    - Soporte para modelos personalizados de armas y mobs.
-    - Soporte para entidades personalizadas de MythicMobs.
-    - Mecánicas de combate personalizables.
-    - Soporte multilingüe.
-    - Personalización completa de GUIs y mensajes.
+<details>
+<summary>The 12 Classes</summary>
+
+| Class | Primary Stat | Class Item | Abilities |
+|-------|-------------|-----------|-----------|
+| Fighter | Strength | Battle Order (Iron Sword) | 12 |
+| Barbarian | Strength | Totem of Fury (Bone) | 14 |
+| Monk | Dexterity | Staff of Ki (Stick) | 15 |
+| Paladin | Strength | Holy Symbol (Golden Sword) | 14 |
+| Rogue | Dexterity | Dagger of Shadows (Iron Sword) | 15 |
+| Ranger | Dexterity | Hunter's Mark (Bow) | 15 |
+| Bard | Charisma | Mystic Instrument (Music Disc) | 15 |
+| Cleric | Wisdom | Divine Symbol (Life Totem) | 14 |
+| Druid | Wisdom | Druidic Branch (Stick) | 15 |
+| Wizard | Intelligence | Arcane Grimoire (Enchanted Book) | 14 |
+| Warlock | Charisma | Pact Book (Book) | 15 |
+| Sorcerer | Charisma | Elemental Staff (Blaze Rod) | 15 |
+
+</details>
+
+<details>
+<summary>Progression & Multiclass</summary>
+
+- **Level range**: 1–12 per class; configurable total cap (TOTAL/PER_CLASS/NONE modes)
+- **XP formula**: configurable base + multiplier (`base=100, multiplier=1.5` by default)
+- **Multiclass cost**: `100 × number of existing classes` XP to unlock each new class
+- **ASI at level 4/8/12** of the same class: GUI auto-triggers, permanent stat improvement
+- **Magical Secrets** (Bard lv5): pick one active ability from any other class
+
+</details>
+
+<details>
+<summary>Resource Management</summary>
+
+| Resource | Classes | Recovery |
+|----------|---------|---------|
+| Spell Slots (full caster) | Wizard, Sorcerer, Bard, Cleric, Druid | Long rest (sleep) |
+| Spell Slots (half caster) | Paladin, Ranger | Long rest |
+| Pact Magic | Warlock | Short or long rest |
+| Ki Points | Monk | Short or long rest |
+| Rage Uses | Barbarian | Long rest |
+
+- `/dc class rest short|long` · Sleeping in bed auto-triggers long rest
+- **ActionBar / Scoreboard** pips display (◆ filled / ◇ empty, configurable)
+
 </details>
 
 ---
 
-## Instalación
+## ✨ 173 Abilities
 
-### **Requisitos Previos**
-- Minecraft 1.21.1 o 1.21.4+.
-- [Fabric Loader](https://fabricmc.net/use) y [Fabric API](https://modrinth.com/mod/fabric-api) para el mod.
-- Un servidor Paper para el plugin.
+Every class has a full roster of active and passive abilities, activated through a loadout system without opening your inventory.
 
----
+<details>
+<summary>Loadout System (4 slots per class)</summary>
 
-## Uso
+| Input | Slot |
+|-------|------|
+| Right-click class item | Slot 1 |
+| Left-click class item | Slot 2 |
+| Shift + Right-click | Slot 3 (or open selector if empty) |
+| Shift + Left-click | Slot 4 |
 
-### **Jugadores**
-- Realiza un ataque normal con cualquier arma. Las mecánicas del mod calcularán automáticamente:
-    - La tirada de ataque (*d20*).
-    - Bonificaciones según el arma utilizada.
-    - El daño infligido basado en la tirada de dados correspondiente.
-      Todo es configurable.
+- **ActionBar** updates every second: class name, ability state (✓ ready or ⏱ Xs), resource count
+- **Preparation**: Shift+Right-click → GUI ability picker filtered by level and available resources
+- Persistent across sessions via database
 
-### **Mobs**
-- Los mobs realizan tiradas de ataque (*d20*) para determinar si sus ataques tienen éxito.
-- Cada mob tiene dados de daño configurables para calcular el daño infligido en un ataque exitoso.
-
-### **FairMode**
-- Los mobs obtienen un bono adicional configurable (+5 por defecto) cuando atacan a jugadores con más de 20 puntos de armadura.
-
-### **Administradores**
-<details><summary>Fabric</summary>
-
-- Usa comandos para añadir configuraciones personalizadas de armas y mobs:
-    - `/dicecraft addweapondamage <dado de daño> <bono>` o `/dc addweapondamage <dado de daño> <bono>`: Añade un arma con dados de daño y bono personalizado.
-    - `/dicecraft addcustomentity <mob:id_entidad> <dado de daño>` o `/dc addcustomentity <mob:id_entidad> <dado de daño> <armadura>`: Añade un mob con dados de daño y armadura personalizadas.
-    - `/dicecraft roll <dado>` o `/dc roll <dado>`: Realiza una tirada pública (ej., `d20`, `3d6+4`).
-    - `/dicecraft proll <dado>` o `/dc proll <dado>`: Realiza una tirada privada.
 </details>
 
-<details><summary>Paper</summary>
+<details>
+<summary>Ability Highlights by Class</summary>
 
-- Usa comandos para gestionar configuraciones avanzadas:
-    - `/dicecraft stats <set|reset|view> [player]`: Ver o configurar atributos de jugadores.
-    - `/dicecraft config fairmode <true/false>`: Activa o desactiva el modo FairMode.
-    - `/dicecraft config shieldbonus <valor>`: Ajusta el bono de armadura del escudo.
-    - `/dicecraft config add weapon <dado de daño> <bonus>`: Añade un arma personalizada basada en su modelo teniéndola en la mano principal.
-    - `/dicecraft config add entity mythicmobs <mobname> <dado de daño>`: Configura mobs personalizados desde MythicMobs.
-    - `/dicecraft config list mythicmobs`: Lista las entidades de MythicMobs.
-    - `/dicecraft reload`: Recarga las configuraciones del plugin.
-    - `/dicecraft roll <dado>`: Realiza una tirada (ej., `d20`, `3d6+4`).
-    - `/dicecraft dmmode set <true/false>`: Activa o desactiva el modo DM.
-    - `/dicecraft dmmode status`: Muestra el estado actual del modo DM.
+**Fighter**: Second Wind, Action Surge, Whirlwind Attack, Extra Attack, Great Weapon Master, Indomitable, Battle Magic…
+
+**Barbarian**: Rage, Reckless Attack, Ground Slam, War Cry, Brutal Critical, Feral Instinct, Primal Champion…
+
+**Monk**: Flurry of Blows, Ki Blast, Quivering Palm, Step of the Wind, Stunning Strike, Martial Arts, Blindsense…
+
+**Paladin**: Divine Smite, Lay on Hands, Holy Avenger, Cleansing Touch, Aura of Protection, Aura of Courage…
+
+**Rogue**: Sneak Attack, Smoke Bomb, Shadow Step, Cunning Action, Evasion, Assassinate, Elusive, Vanish…
+
+**Ranger**: Hunter's Mark, Multi-shot, Volley, Ensnaring Shot, Favored Enemy, Hide in Plain Sight, Foe Slayer…
+
+**Bard**: Vicious Mockery, Hypnotic Pattern, Healing Word, Inspiration, Cutting Words, Jack of All Trades, Magical Secrets…
+
+**Cleric**: Healing Word, Turn Undead, Resurrection, Mass Cure, Beacon of Hope, Bless, Divine Intervention…
+
+**Druid**: Entangling Roots, Call of the Pack, Wrath of Nature, Produce Flame, Spore Cloud, Tidal Wave, Thorn Armor…
+
+**Wizard**: Fireball, Misty Step, Time Stop, Magic Missile, Counterspell, Disintegrate, Haste, Invisibility, Teleport…
+
+**Warlock**: Eldritch Blast, Hex, Hunger of Hadar, Hellish Rebuke, Armor of Agathys, Pact Blade, Minions of Chaos…
+
+**Sorcerer**: Chromatic Orb, Wild Magic Surge, Chaos Bolt, Dragon Wings, Quickened Spell, Twinned Spell, Bend Luck…
+
+</details>
+
+<details>
+<summary>Damage Feedback (configurable)</summary>
+
+- `FULL` — chat with per-die breakdown
+- `SUMMARY` — chat with roll + total only
+- `ACTIONBAR` — compact one-liner
+- `OFF` — silent
+- Failed rolls: `ZERO` (default for single-target) or `HALF` (default for AoE/saves), overridable per-ability
+
 </details>
 
 ---
 
-## Ejemplo de mecánicas
+## 💀 Death Saving Throws
 
-1. **Jugador ataca a un mob**:
-    - Se realiza una tirada de ataque con un *d20*:
-      ```
-      Tirada de ataque: 15 + bonificador del arma.
-      Valor de armadura del mob: 14.
-      ```
-    - Si la tirada supera el valor de armadura, el ataque tiene éxito.
-    - Luego, se realiza una tirada de daño basada en el arma:
-      ```
-      Daño infligido: 1d8 (espada de hierro) → Resultado: 6.
-      ```
+Death in DiceCraft is a dramatic moment, not a respawn screen.
 
-2. **Mob ataca a un jugador**:
-    - El mob realiza una tirada de ataque con un *d20* (incluyendo el bono de FairMode, si aplica).
-    - Si la tirada supera la armadura del jugador, el ataque tiene éxito.
-    - El daño se determina con un dado específico configurado para el mob:
-      ```
-      Daño infligido por zombi: 1d6 → Resultado: 4.
-      ```
+<details>
+<summary>How It Works</summary>
+
+When HP reaches 0, the player enters a downed crawl state — incoming damage is negated, mobs cannot target them.
+
+**Without DM Mode**: fixed countdown timer → auto d20 roll ≥ 10 to survive.
+
+**With DM Mode (D&D rules)**:
+- Automated d20 rolls every 10s
+- 3 successes (≥10) → revive · 3 failures (<10) → permanent death
+- Natural 20 → 2 successes · Natural 1 → 2 failures
+- Scoreboard shows live: `Successes: N | Failures: N`
+
+**Active while downed**:
+- Hold Shift for 3s (player) → force a manual saving throw
+- Ally within 2 blocks holds Shift for 3s → revive with ActionBar progress bar
+- Cleric abilities `Resurrection` and `True Resurrection` can revive permanently dead players
+
+</details>
 
 ---
 
-## Soporte
+## 🗺️ RPG Module — Dialogues, Quests, NPCs, Checks & Affinity
 
-Si necesitas ayuda o tienes preguntas, ¡únete a nuestro servidor de Discord! 😊
+A full narrative and quest system built directly into the plugin.
 
---- 
+<details>
+<summary>Dialogue System (Paper Dialog API)</summary>
+
+- **Graph-based nodes** with branching choices
+- Per-node: body text (MiniMessage), multiple choices, conditions, d20 checks, actions
+- **Conditions gate choices** (quest status, affinity tier, player flags, class level…)
+- **D20 skill checks** inside dialogue (Persuasion, Deception, Intimidation…)
+- **Actions on choice**: start quest, add affinity, give items, run commands, set flags, open trade…
+- Per-player session tracking with back-stack navigation
+
+</details>
+
+<details>
+<summary>18 Skill Check Types</summary>
+
+Persuasion · Deception · Intimidation · Insight · Perception · Investigation · Stealth · Athletics · Acrobatics · Sleight of Hand · Arcana · History · Nature · Religion · Animal Handling · Medicine · Survival · Performance
+
+Each check: `1d20 + stat modifier + affinity bonus vs. DC` (with DM Mode) or `plain 1d20 vs. DC` (without). Natural 20/1 auto-succeed/fail.
+
+</details>
+
+<details>
+<summary>25+ Quest Objective Types</summary>
+
+`kill_entity` · `kill_player` · `kill_boss` · `collect_item` · `deliver_item` · `consume_item` · `break_blocks` · `place_blocks` · `interact_block` · `craft_item` · `smelt_item` · `enchant_item` · `brew_item` · `fish_catch` · `reach_location` · `reach_dialogue_node` · `explore_biome` · `reach_level` · `gain_xp` · `deal_damage` · `take_damage` · `talk_to_npc` · `tame_mobs` · `breed_mobs` · `escort_npc` · `gain_affinity` · `learn_class` · `complete_quest` · `use_ability` · `pass_check` · `playtime` · `run_command_trigger` · `condition`
+
+Quests support **multi-stage branching**, prerequisites, cooldowns, time limits, repeatable flags, and fully configurable rewards (XP, items, affinity, flags, commands, titles, sounds, particles).
+
+</details>
+
+<details>
+<summary>NPC System (Native + Citizens soft-depend)</summary>
+
+- **Native NPCs**: spawn any Minecraft entity at a configured location, invulnerable, no AI
+- **Citizens NPCs**: full Citizens 2.x integration (soft-depend, degrades gracefully if absent)
+- **Conditional dialogue routing**: per-binding conditions — first match wins, default fallback
+- **Trade menu**: auto-injects a "Trade" button in dialogue; configurable pool from `trades.yml`
+- **Affinity tiers**: HOSTILE / NEUTRAL / FRIENDLY / HONORED — affect dialogue branches, check bonuses, and trade prices
+
+</details>
+
+<details>
+<summary>Affinity (Reputation) System</summary>
+
+- Per-player, per-NPC reputation score
+- Tiers: HOSTILE (≤-20, -2 to checks) · NEUTRAL · FRIENDLY (+20, +1) · HONORED (+50, +2)
+- **Charisma bias**: CHA modifier influences affinity gains (DM Mode only, configurable)
+- **Trade price scaling**: HOSTILE 1.25× → HONORED 0.70× cost multiplier
+- Hostile players can be blocked from rare trade offers
+
+</details>
+
+<details>
+<summary>In-Game Content Editors (GUI)</summary>
+
+Full GUI editors for server staff — no external tools needed:
+- **Dialogue editor**: create/edit nodes, choices, conditions, actions
+- **Quest editor**: multi-stage creation, objective configuration, reward setup
+- **NPC editor**: spawn location, provider type, dialogue bindings, trade config
+- Content saved as hot-reloadable YAML (`/dc rpg reload`)
+
+</details>
+
+---
+
+## 🧪 Spell Scrolls
+
+<details>
+<summary>Scroll System</summary>
+
+- **Single-use consumable items** — right-click to cast any ability
+- **Scroll Infusion Altar**: crafted from Chest + Enchanting Table base + Amethyst pillars
+- **Two tiers**:
+  - *Lesser Scroll* (Lv1–5): Paper + 4 Blaze Powder + 1 Diamond
+  - *Greater Scroll* (Lv1–12): Paper + 8 Blaze Powder + 4 Diamond + Nether Star
+- **Casting stat**: Intelligence by default, configurable per scroll
+- **Loot generation**: configurable 12% chest spawn chance, max level cap for found scrolls
+
+</details>
+
+---
+
+## 🏆 XP & Rewards
+
+<details>
+<summary>XP Sources (all configurable)</summary>
+
+| Action | Default XP |
+|--------|-----------|
+| Kill mob | 50 |
+| Kill player | 150 |
+| Kill boss (Wither/Dragon or >100 HP mob) | 500 |
+| Discover structure | 100 |
+| Mine diamond ore | 10 |
+| Mine ancient debris | 20 |
+| Craft item | 5 |
+| Catch fish | 15 |
+
+</details>
+
+---
+
+## 🛠️ Commands & Permissions
+
+<details>
+<summary>Full Command Reference</summary>
+
+| Command | Permission | Purpose |
+|---------|-----------|---------|
+| `/dc hub` | `dicecraft.use` | Open character hub GUI |
+| `/dc roll <notation>` | `dicecraft.use` | Roll any dice (3d6+2, 1d20…) |
+| `/dc dmmode set true\|false [player]` | `dicecraft.dmmode` | Toggle DM Mode |
+| `/dc dmmode status` | `dicecraft.dmmode` | Check DM Mode status |
+| `/dc turnmode start\|stop` | `dicecraft.turnmode` | Begin/end combat session |
+| `/dc stats set [player]` | `dicecraft.stats.set` | Open attribute setup GUI |
+| `/dc stats view [player]` | `dicecraft.stats.view` | Show stats in chat |
+| `/dc stats reset [player]` | `dicecraft.stats.reset` | Reset stats (admin) |
+| `/dc levelup [class]` | `dicecraft.levelup` | View/manage classes & XP |
+| `/dc class menu` | `dicecraft.use` | Open ability selector |
+| `/dc class set-secret <key>` | `dicecraft.use` | Set Bard Magical Secrets |
+| `/dc class rest short\|long` | `dicecraft.use` | Recover spell slots/Ki/Rage |
+| `/dc quests` | `dicecraft.use` | List active/completed quests |
+| `/dc quests <id>` | `dicecraft.use` | View quest details |
+| `/dc admin reset stats\|class\|all <player>` | `dicecraft.admin` | Force reset (no item required) |
+| `/dc admin give-reset <type> <player>` | `dicecraft.admin` | Give reset item to player |
+| `/dc rpg reload` | `dicecraft.admin` | Hot-reload all RPG content |
+| `/dc rpg quest give <id> [player]` | `dicecraft.admin` | Grant quest to player |
+| `/dc rpg edit` | `dicecraft.admin` | Open content editor hub |
+| `/dc reload` | `dicecraft.admin` | Reload all config files |
+
+</details>
+
+---
